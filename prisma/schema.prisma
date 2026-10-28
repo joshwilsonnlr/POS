@@ -1,0 +1,38 @@
+// Multi-Tenant POS SaaS - Prisma Schema
+// Phase 1: Core multi-tenant foundation
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== ENUMS ====================
+
+enum UserRole {
+  SUPER_ADMIN
+  OWNER
+  MANAGER
+  CASHIER
+}
+
+enum SubscriptionStatus {
+  TRIAL
+  ACTIVE
+  PAST_DUE
+  CANCELLED
+  SUSPENDED
+}
+
+enum BusinessStatus {
+  ACTIVE
+  SUSPENDED
+  CANCELLED
+  PENDING
+}
+
+// Full schema is available in the local Phase 1 commit.
+// See repository for complete models: User, Business, Product, Sale, Inventory, etc.
